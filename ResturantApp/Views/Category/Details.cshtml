@@ -1,0 +1,45 @@
+﻿@model ResturantApp.ViewModel.CategoryData
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.Description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.Description)
+    </div>
+
+
+        <div class="display-label">
+     <h2>Items For @Model.Category.Name</h2>   
+    </div>
+    <div class="display-field">
+<ul>
+    @foreach(var mydata in Model.Items){
+    <li> <a href="/Item/Details/@mydata.Id">@mydata.Name</a></li>
+       
+                                                                       
+    }
+
+</ul>
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Category.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

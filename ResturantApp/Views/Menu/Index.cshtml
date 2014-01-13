@@ -1,0 +1,17 @@
+﻿@model ResturantApp.ViewModel.MenuData
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+@foreach (var d in Model.CategoryDataItems)
+{
+    <h1>@d.Key.Name</h1>
+    <ul>
+    @{
+foreach(var mydata in d.Value)
+    {
+         <li><a href="/Item/Details/@mydata.Id">@mydata.Name</a></li>
+       }
+        }
+        </ul>
+}
